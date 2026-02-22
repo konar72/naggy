@@ -1,0 +1,31 @@
+{
+    "text": {
+        "uid": 0,
+        "emoji": "☎️",
+        "trigger": "/text",
+        "motivation_type": "text",
+        "tone_weights": {"gentle": 0.7, "medium": 0.3},
+        "reminder_value": 1,
+        "reminder_unit": "m"
+    },
+    "todo": {
+        "uid": 1,
+        "emoji": "☑️",
+        "trigger": "/do",
+        "motivation_type": "task",
+        "tone_weights": {"gentle": 0.2, "medium": 0.3, "harsh": 0.3, "long-term": 0.2},
+        "reminder_value": 30,
+        "reminder_unit": "m"
+    },
+    "buy":{
+        "uid": 2,
+        "emoji": "🛒",
+        "trigger": "/buy",
+        "motivation_type": null,
+        "tone_weights": null,
+        "reminder_value": null,  
+        "reminder_unit": null,
+        "shopping_digest_day": 4,
+        "shopping_digest_hour": 15
+    }
+}

@@ -1,0 +1,73 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: RecuerdaBot (Telegram) - Lambda + API GW + DynamoDB + EventBridge
+
+Parameters:
+  BotToken:
+    Type: String
+  WebhookSecret:
+    Type: String
+    Description: Random string; Telegram will send it in X-Telegram-Bot-Api-Secret-Token
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Timeout: 15
+    MemorySize: 256
+
+Resources:
+  StateTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: RecuerdaUserState
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - { AttributeName: user_id, AttributeType: S }
+      KeySchema:
+        - { AttributeName: user_id, KeyType: HASH }
+
+  WebhookFunc:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: lambda_webhook.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: RecuerdaUserState
+        - AWSLambdaBasicExecutionRole
+      Environment:
+        Variables:
+          BOT_TOKEN: !Ref BotToken
+          WEBHOOK_SECRET_TOKEN: !Ref WebhookSecret
+          TABLE_NAME: RecuerdaUserState
+          REGION: !Ref AWS::Region
+      Events:
+        ApiWebhook:
+          Type: HttpApi
+          Properties:
+            Path: /telegram
+            Method: POST
+
+  TickFunc:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: lambda_tick.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: RecuerdaUserState
+        - AWSLambdaBasicExecutionRole
+      Environment:
+        Variables:
+          BOT_TOKEN: !Ref BotToken
+          TABLE_NAME: RecuerdaUserState
+          REGION: !Ref AWS::Region
+      Events:
+        Tick:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 minute)
+
+Outputs:
+  WebhookUrl:
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/telegram"
