@@ -1,12 +1,14 @@
 # Naggy
 
 <p align="center">
-  <img src="assets/icon.png" alt="Naggy icon" width="150">
+  <img src="assets/icon.jpg" alt="Naggy icon" width="150">
 </p>
 
 A Telegram bot that nags you until you get things done.
 
-Naggy manages **reminders**, **to-dos**, and **shopping lists** with timezone-aware scheduling and motivational messages that actually work.
+Inspired by Duolingo's Duo and his infinite persistence, Naggy makes sure you follow through on **reminders**, **to-dos**, and **shopping lists** with timezone-aware scheduling and "motivational" messages.
+
+I made this for myself just for fun, so it's still a work in progress with plenty of [to-dos](TODO.md). There's an emphasis on texting because, as everyone I know will agree, I am a terrible texter (sorry guys, I'm working on it). 
 
 ## Features
 
@@ -41,9 +43,10 @@ Naggy manages **reminders**, **to-dos**, and **shopping lists** with timezone-aw
 
 ### Local (polling mode)
 
+1. Clone this repo
+2. cd into this directory
+3. Run these commands in 
 ```bash
-git clone https://github.com/ayhankonar/RecuerdaBot.git
-cd RecuerdaBot
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -89,3 +92,10 @@ curl "https://api.telegram.org/bot<your-token>/setWebhook?url=<WebhookUrl>&secre
 3. At 5pm, RecuerdaBot sends you a message with a motivational nudge
 4. It keeps reminding you (every 30min for todos, every 1min for texts) until you `/done` it
 5. Shopping items collect quietly and get sent as a digest every Friday at 3pm
+
+
+
+<p align="center">
+  <img src="assets/icon.png" alt="Naggy icon" width="64">
+</p>
+
