@@ -6,9 +6,13 @@
 
 A Telegram bot that nags you until you get things done.
 
-Inspired by Duolingo's Duo and his infinite persistence, Naggy makes sure you follow through on **reminders**, **to-dos**, and **shopping lists** with timezone-aware scheduling and "motivational" messages.
+Inspired by Duolingo's Duo and his unhinged persistence, Naggy manages your **reminders**, **to-dos**, and **shopping lists** with aggressive "motivational" messages.
 
-I made this for myself just for fun, so it's still a work in progress with plenty of [to-dos](TODO.md). There's an emphasis on texting because, as everyone I know will agree, I am a terrible texter (sorry guys, I'm working on it). 
+I made this just for fun for myself, and it's still a [work in progress](TODO.md). There's an emphasis on texting because, as everyone I know will agree, I am a terrible texter (sorry guys, I'm working on it). 
+
+<p align="center">
+  <img src="assets/screenshot.png" alt="screenshot of iPhone showing many messages by Naggy" width="250">
+</p>
 
 ## Features
 
@@ -65,7 +69,7 @@ python main.py
 
 ### AWS (serverless mode)
 
-RecuerdaBot can also run on AWS Lambda with API Gateway, DynamoDB, and EventBridge using the included SAM template.
+Naggy can also run on AWS Lambda with API Gateway, DynamoDB, and EventBridge using the included SAM template.
 
 ```bash
 sam build
@@ -89,7 +93,7 @@ curl "https://api.telegram.org/bot<your-token>/setWebhook?url=<WebhookUrl>&secre
 
 1. You set your timezone with `/timezone`
 2. Create a reminder: `/todo Clean desk @ 5pm`
-3. At 5pm, RecuerdaBot sends you a message with a motivational nudge
+3. At 5pm, Naggy sends you a message with a motivational nudge
 4. It keeps reminding you (every 30min for todos, every 1min for texts) until you `/done` it
 5. Shopping items collect quietly and get sent as a digest every Friday at 3pm
 
