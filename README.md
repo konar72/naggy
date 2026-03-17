@@ -6,9 +6,9 @@
 
 A Telegram bot that nags you until you get things done.
 
-Inspired by Duolingo's Duo and his unhinged persistence, Naggy manages your **reminders**, **to-dos**, and **shopping lists** with aggressive "motivational" messages.
+Inspired by Duolingo's Duo and his unrelenting persistence, Naggy manages your **reminders**, **to-dos**, and **shopping lists** with aggressive "motivational" messages.
 
-I made this just for fun for myself, and it's still a [work in progress](TODO.md). There's an emphasis on texting because, as everyone I know will agree, I am a terrible texter (sorry guys, I'm working on it). 
+I made this for myself in 2025 but it's still a [work in progress](TODO.md). There's an emphasis on texting because, as everyone who knows me will agree: I am a terrible texter (sorry guys, I'm working on it, as you can see!).
 
 <p align="center">
   <img src="assets/screenshot.png" alt="screenshot of iPhone showing many messages by Naggy" width="250">
