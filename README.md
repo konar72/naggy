@@ -1,5 +1,8 @@
 # Naggy
 
+<p align="center">
+  <img src="assets/icon.png" alt="Naggy icon" width="150">
+</p>
 
 A Telegram bot that nags you until you get things done.
 
